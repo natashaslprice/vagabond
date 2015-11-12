@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+  		<a class="navbar-brand" href="/">Travel Gems</a>
+
+      <!-- User Logged In -->
+
+      <% if @user %>
+     		<ul class="nav navbar-nav pull-right">
+     			<li class="logged-in"><a href="/">Discover</a></li>
+          <!-- Cities dropdown -->
+            <li class="logged-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">San Francisco</a></li>
+            </ul>
+     		 	<li class="logged-in"><a href="/profile">Profile</a></li>
+          <!-- Logout Dropdown -->
+     		 	<li class="logged-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" id="logout-btn">Logout</a></li>
+            </ul>
+      	</ul>
+
+        
+        <!-- If user is not logged in -->
+        <% else %>
+          <ul class="nav navbar-nav pull-right">
+            <li class="logged-out"><a href="/">Sign Up</a></li>
+            <li class="logged-out"><a href="/">Log In</a></li>
+          </ul>
+        <% end %>
+  </div>
+</nav>
