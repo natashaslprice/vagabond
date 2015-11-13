@@ -5,10 +5,14 @@
 				<h3><strong><%= link_to p.title, post_path(p) %></strong></h3> 
 				<span class="pull-right">in <%= p.city %></span>
 				<br>
-				<%= p.content %>
+				<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p)) %>
 				<p>Posted <%= time_ago_in_words (p.created_at)%> ago by <%= @user.username %></p>
 				<hr>
 			</div>
 		<% end %>	
 	</div>
 </div>
+
+
+
+

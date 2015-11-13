@@ -17,7 +17,7 @@
 				<% @posts.reverse.each do |p| %>
 					<div>
 						<p><h3><%= link_to p.title, post_path(p) %> </h3> in <%= p.city %></p>
-						<p><%= p.content %></p>
+						<p><%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p)) %></p>
 						<p>Posted <%= time_ago_in_words (p.created_at)%> ago by <%= @user.username %></p>
 					</div>
 				<% end %>
