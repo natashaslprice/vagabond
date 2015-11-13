@@ -1,2 +1,25 @@
-<h1>Welcome <%= current_user.first_name + " " + current_user.last_name %></h1>
-<%= link_to "Edit Profile", edit_user_path, class: "btn btn-primary" %>
+<div class="container">
+	<div class="row">
+		<!-- User Info -->
+		<div class="col-md-3 col-md-offset-1" id="user-info">
+			<br>
+			<h3><%= @user.username %></h3>
+			<h4><%= current_user.first_name + " " + current_user.last_name %></h4>
+			<p><%= @user.current_city %></p>
+			<p><%= @user.created_at %></p>
+			<%= link_to "Edit Profile", edit_user_path, class: "btn btn-primary" %>
+		</div>
+		<!-- Profile Stream -->
+		<div class="col-md-6">
+			<div class="row" id="profile-content">
+				<% @posts.each do |p| %>
+					<div>
+						<h1><%= link_to p.title, post_path %></h1>
+						<p><%= p.content %></p>
+						<p><%= p.city %></p>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
