@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
     if current_user
-      redirect_to profile_path
+      redirect_to user_path
     else
       render :new
     end
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
     #set session id to nil (meaning no user)
     session[:user_id] = nil
     #redirect back to index page after logout
-    redirect_to root_path
+    redirect_to "/"
   end
 
   private
