@@ -1,32 +1,38 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-  		<a class="navbar-brand" href="/">Travel Gems</a>
+		<a class="navbar-brand" href="/">Travel Gems</a>
 
-      <!-- User Logged In -->
+    <!-- User Logged In -->
 
-      <% if @user %>
-     		<ul class="nav navbar-nav pull-right">
-     			<li class="logged-in"><a href="/">Discover</a></li>
-          <!-- Cities dropdown -->
-            <li class="logged-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="/cities/sanfrancisco">San Francisco</a></li>
-            </ul>
-     		 	<li class="logged-in"><%= link_to "Profile", @user %></li>
-          <!-- Logout Dropdown -->
-     		 	<li class="logged-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="/logout" id="logout-btn">Logout</a></li>
-            </ul>
-      	</ul>
-
-        
-        <!-- If user is not logged in -->
-        <% else %>
-          <ul class="nav navbar-nav pull-right">
-            <li class="logged-out"><a href="/signup">Sign Up</a></li>
-            <li class="logged-out"><a href="/login">Log In</a></li>
+    <% if @user %>
+   		<ul class="nav navbar-nav pull-right">
+   			<li class="logged-in"><a href="/">Discover</a></li>
+        <!-- Cities dropdown -->
+          <li class="logged-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/cities/sanfrancisco">San Francisco</a></li>
           </ul>
-        <% end %>
+   		 	<li class="logged-in"><%= link_to "Profile", @user %></li>
+        <!-- Logout Dropdown -->
+   		 	<li class="logged-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/logout" id="logout-btn">Logout</a></li>
+          </ul>
+    	</ul>
+
+      
+      <!-- If user is not logged in -->
+      <% else %>
+        <ul class="nav navbar-nav pull-right">
+          <!-- sign up modal button -->
+          <li class="logged-out"><!-- <a href="/signup">Sign Up</a> -->
+            <%= link_to 'Sign Up', '#', data: { toggle: "modal", target: "#sign-up-modal" } %>
+          </li>
+          <!-- log in modal button -->
+          <li class="logged-out"><!-- <a href="/login">Log In</a> -->
+            <%= link_to 'Log In', '#', data: { toggle: "modal", target: "#log-in-modal" } %>
+          </li>
+        </ul>
+      <% end %>
   </div>
 </nav>
