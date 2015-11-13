@@ -49,5 +49,7 @@ group :development do
   gem 'bootstrap-sass', '~> 3.3.5'
 
   gem 'paperclip', '~> 4.3', '>= 4.3.1'
+
+  gem 'papercrop', '~> 0.3.0'
 end
 

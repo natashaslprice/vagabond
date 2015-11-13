@@ -25,5 +25,10 @@ function setPins() {
 }
 
 $(document).ready(function(){
-	initMap();
+
+/*	only calls init map if there is an element in the DOM with id='map' 	*/
+	if (document.getElementById('map')) {
+		initMap();
+	}
+
 });
