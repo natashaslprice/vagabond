@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	# allow easy authentication
 	has_secure_password
 	# for paperclip
-	has_attached_file :profile_pic, styles: { large: "1000x1000>", medium: "200X200>", thumb: "100x100>" }, default_url: "missing.png"
+	has_attached_file :profile_pic, styles: { large: "1000x1000>", medium: "200X200#", thumb: "100x100>" }, default_url: "missing.png"
   validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
 	
 	BCrypt::Engine.cost = 12
