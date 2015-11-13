@@ -14,7 +14,7 @@
 			<div class="row" id="profile-content">
 				<% @posts.each do |p| %>
 					<div>
-						<h1><%= link_to p.title, post_path %></h1>
+						<h3><%= link_to p.title, post_path(p) %></h3>
 						<p><%= p.content %></p>
 						<p><%= p.city %></p>
 					</div>
