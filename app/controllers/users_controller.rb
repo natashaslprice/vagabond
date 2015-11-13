@@ -32,6 +32,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    # find user
+    user = User.find(params[:id])
+    # update user attributes with new form data
+    user.update_attributes(user_params)
+    redirect_to user
   end
 
   def destroy
