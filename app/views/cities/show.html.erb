@@ -2,10 +2,6 @@
 	<div class="col-sm-6 col-sm-offset-3">
 		<% @posts.each do |p| %>
 			<div class="posts">
-				<span class="pull-right">
-					<%= link_to 'Edit', edit_post_path(p) %>
-					<%= link_to 'Delete' %>
-				</span>
 				<h3><strong><%= link_to p.title, post_path(p) %></strong></h3> 
 				<span class="pull-right">in <%= p.city %></span>
 				<br>
@@ -16,4 +12,3 @@
 		<% end %>	
 	</div>
 </div>
-

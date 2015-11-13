@@ -32,8 +32,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     user_id = @post.user_id
-    creator = User.find(user_id)
-    @user = creator.username
+    @creator = User.find(user_id)
+
   end
 
   def update
@@ -45,6 +45,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    # find current user
+    @user = current_user
+    # find post to delete
+    post = Post.find(params[:id])
+    # destroy post
+    post.destroy
+    redirect_to @user
   end
 
   private
