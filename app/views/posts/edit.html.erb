@@ -1,18 +1,48 @@
 <div class="container">
 	<div class="col-sm-4 col-sm-offset-4">
 		<div class="well">	
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h2 class="text-center">Edit Post</h2>
 			<%= form_for @post do |f| %>
 				<%= f.label :title %>
 				<%= f.text_field :title, class: "form-control", placeholder: 'Title', autofocus: true %>
-				<br>
 				<%= f.label :content %>
 				<%= f.text_area :content, class: "form-control", placeholder: 'Content' %>
+				<%= f.label :city %>
+				<select class='form-control'>
+					<option>San Francisco</option>
+					<option>London</option>
+					<option>Sapporo</option>
+				</select>
 				<br>
-				<%= f.select :city, ['San Francisco', 'London'], :selected => "San Francisco", class: "form-control btn-group" %>
-				<%= f.submit 'Submit', value: "Submit", class: "btn btn-primary" %>
+				<!-- button with delete modal in -->
+				<%= link_to 'Delete', '#', class: 'btn btn-danger', data: {toggle: "modal", target: "#my-modal"}  %> 
+				<span class="pull-right">
+					<%= f.submit 'Submit', value: "Submit", class: "btn btn-primary" %>	
+				</span>
 			<% end %>
 		</div>
 	</div>
 </div>
+
+<!-- include delete modal -->
+<div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Confirm Delete Request</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this post?</p>
+        <p>This action cannot be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <%= link_to 'Delete Post', post_path, method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of delete modal -->
 

@@ -5,13 +5,45 @@
 
 <% if @post.user_id == current_user.id %>
 	<span class="pull-right">
-		<%= link_to 'Edit', edit_post_path(@post) %>
-		<%= link_to 'Delete', '#', class: 'btn btn-danger', data: {toggle: "modal", target: "#my-modal"}  %> 
+    <!-- button with edit modal in -->
+		<%= link_to 'Edit', '#', class: 'btn btn-primary', data: { toggle: "modal", target: "#edit-modal" } %>
 	</span>
 <% end %>
 
-<!-- include delete modal -->
-<div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- edit modal -->
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit Post</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @post do |f| %>
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "form-control", placeholder: 'Title', autofocus: true %>
+          <%= f.label :content %>
+          <%= f.text_area :content, class: "form-control", placeholder: 'Content' %>
+          <%= f.label :city %>
+          <select class='form-control'>
+            <option>San Francisco</option>
+            <option>London</option>
+            <option>Sapporo</option>
+          </select>
+          <br>
+          <!-- button with delete modal in -->
+          <%= link_to 'Delete', '#', class: 'btn btn-danger', data: {toggle: "modal", target: "#delete-modal"}  %> 
+          <span class="pull-right">
+            <%= f.submit 'Submit', value: "Submit", class: "btn btn-primary" %> 
+          </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delete modal -->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -29,6 +61,3 @@
     </div>
   </div>
 </div>
-<!-- end of delete modal -->
-
-
