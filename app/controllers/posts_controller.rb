@@ -30,9 +30,13 @@ class PostsController < ApplicationController
   end
 
   def show
+    # find current user so page is logged in
+    @user = current_user
+    # find post 
     @post = Post.find(params[:id])
+    # find author of post
     user_id = @post.user_id
-    @creator = User.find(user_id)
+    @author = User.find(user_id)
 
   end
 

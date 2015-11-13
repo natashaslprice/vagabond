@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="col-sm-6 col-sm-offset-3">
-		<% @posts.each do |p| %>
+		<% @posts.reverse.each do |p| %>
 			<div class="posts">
 				<h3><strong><%= link_to p.title, post_path(p) %></strong></h3> 
 				<span class="pull-right">in <%= p.city %></span>
