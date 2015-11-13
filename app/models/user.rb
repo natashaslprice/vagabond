@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
 	has_many :posts
 	# allow easy authentication
 	has_secure_password
+	# for paperclip
+	has_attached_file :profile_pic, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "missing.png"
+  validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
 	
 	BCrypt::Engine.cost = 12
 	validates :email, presence: true
