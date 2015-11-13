@@ -3,9 +3,26 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
+    # find current user
+    @user = current_user
+    #make a new post
+    post = Post.new(post_params)
+    #if post saved 
+    if post.save
+      #push post into user
+      @user.posts << post
+      #redirect back to profile page
+      redirect_to @user
+    else
+      #if not saved return to new post form
+      redirect_to new_post_path
+      #include flash message
+
+    end
   end
 
   def edit
@@ -22,5 +39,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :content, :city)
   end
 end

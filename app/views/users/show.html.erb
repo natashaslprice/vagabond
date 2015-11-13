@@ -9,6 +9,7 @@
 			<p><%= @user.current_city %></p>
 			<p> Joined <%= time_ago_in_words(@user.created_at) %> ago </p>
 			<%= link_to "Edit Profile", edit_user_path, class: "btn btn-primary" %>
+			<%= link_to "New Post", new_post_path , class: "btn btn-primary" %>
 		</div>
 		<!-- Profile Stream -->
 		<div class="col-md-6">
