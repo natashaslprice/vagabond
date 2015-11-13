@@ -9,10 +9,8 @@
 				<%= f.label :content %>
 				<%= f.text_area :content, class: "form-control", placeholder: 'Content' %>
 				<br>
-				<%= f.label :city %>
-				<%= f.text_field :city, class: "form-control", placeholder: 'city' %>
-				<br>
-				<%= f.submit 'post', value: "Post!", class: "btn btn-default" %>
+				<%= f.select :city, ['San Francisco'], :selected => "San Francisco", class: "form-control btn-group btn btn-default" %>
+				<%= f.submit 'post', value: "Post!", class: "btn btn-primary" %>
 			<% end %>
 		</div>
 	</div>
