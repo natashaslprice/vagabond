@@ -15,9 +15,9 @@
 			<div class="row" id="profile-content">
 				<% @posts.each do |p| %>
 					<div>
-						<h3><%= link_to p.title, post_path(p) %></h3>
+						<p><h3><%= link_to p.title, post_path(p) %> </h3> in <%= p.city %></p>
 						<p><%= p.content %></p>
-						<p><%= p.city %></p>
+						<p>Posted <%= time_ago_in_words (p.created_at)%> ago by <%= @user.username %></p>
 					</div>
 				<% end %>
 			</div>
