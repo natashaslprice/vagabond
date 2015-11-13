@@ -5,6 +5,7 @@
 				<strong><%= p.title %></strong> in <%= p.city %>
 				<br>
 				<%= p.content %>
+				<p>Posted <%= time_ago_in_words (p.created_at)%> ago by <%= @user.username %></p>
 				<hr>
 			</div>
 		<% end %>	
