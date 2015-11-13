@@ -1,19 +1,3 @@
-<h4><%= @post.city %></h4>
-
-<h3><%= @post.title %></h3>
-
-<p><%= @post.content %></p>
-
-<p><%= @creator.username %></p>
-
-<% if @post.user_id == current_user.id %>
-	<span class="pull-right">
-		<%= link_to 'Edit', edit_post_path(@post) %>
-		<%= link_to 'Delete', '#', class: 'btn btn-danger', data: {toggle: "modal", target: "#my-modal"}  %> 
-	</span>
-<% end %>
-
-<!-- include delete modal -->
 <div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -32,4 +16,3 @@
     </div>
   </div>
 </div>
-<!-- end of delete modal -->
