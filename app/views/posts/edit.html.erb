@@ -1,2 +1,18 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="container">
+	<div class="col-sm-4 col-sm-offset-4">
+		<div class="well">	
+			<h2 class="text-center">Edit Post</h2>
+			<%= form_for @post do |f| %>
+				<%= f.label :title %>
+				<%= f.text_field :title, class: "form-control", placeholder: 'Title', autofocus: true %>
+				<br>
+				<%= f.label :content %>
+				<%= f.text_area :content, class: "form-control", placeholder: 'Content' %>
+				<br>
+				<%= f.select :city, ['San Francisco', 'London'], :selected => "San Francisco", class: "form-control btn-group" %>
+				<%= f.submit 'Submit', value: "Submit", class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+

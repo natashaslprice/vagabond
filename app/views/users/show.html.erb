@@ -14,13 +14,14 @@
 		<!-- Profile Stream -->
 		<div class="col-md-6">
 			<div class="row" id="profile-content">
-				<% @posts.each do |p| %>
+				<% @posts.reverse.each do |p| %>
 					<div>
 						<p><h3><%= link_to p.title, post_path(p) %> </h3> in <%= p.city %></p>
 						<p><%= p.content %></p>
 						<p>Posted <%= time_ago_in_words (p.created_at)%> ago by <%= @user.username %></p>
 					</div>
 				<% end %>
+				
 			</div>
 		</div>
 	</div>

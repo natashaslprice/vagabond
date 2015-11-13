@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def show
@@ -36,6 +37,11 @@ class PostsController < ApplicationController
   end
 
   def update
+       # find post
+    post = Post.find(params[:id])
+    # update post attributes with new form data
+    post.update_attributes(post_params)
+    redirect_to post
   end
 
   def destroy
