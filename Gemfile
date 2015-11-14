@@ -51,5 +51,9 @@ group :development do
   gem 'paperclip', '~> 4.3', '>= 4.3.1'
 
   gem 'papercrop', '~> 0.3.0'
+
+  gem "therubyracer"
+  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem "twitter-bootstrap-rails"
 end
 

@@ -20,7 +20,8 @@ class SessionsController < ApplicationController
   		redirect_to user_path(user.id)
   	else
   		#if error logging user in
-  		redirect_to login_path
+  		redirect_to root_path, 
+      flash: { error: "Log in failed" }
   	end
   end
 
@@ -29,7 +30,7 @@ class SessionsController < ApplicationController
     #set session id to nil (meaning no user)
     session[:user_id] = nil
     #redirect back to index page after logout
-    redirect_to "/"
+    redirect_to root_path, flash: { success: "Successfully logged out!" }
   end
 
   private

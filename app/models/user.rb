@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
 	
 	BCrypt::Engine.cost = 12
-	validates :email, presence: true
+	validates :email, presence: true, uniqueness: true
+	validates :username, presence: true, uniqueness: true
 	validates :password_digest, presence: true
 	validates_confirmation_of :password
 
