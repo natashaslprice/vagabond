@@ -25,11 +25,7 @@
           <%= f.label :content %>
           <%= f.text_area :content, class: "form-control", placeholder: 'Content' %>
           <%= f.label :city %>
-          <select class='form-control'>
-            <option>San Francisco</option>
-            <option>London</option>
-            <option>Sapporo</option>
-          </select>
+          <%= f.select :city, ['San Francisco', 'London', 'Tokyo'], :selected => "San Francisco", class: "form-control btn-group" %>
           <br>
           <!-- button with delete modal in -->
           <%= link_to 'Delete', '#', class: 'btn btn-danger', data: {toggle: "modal", target: "#delete-modal"}  %> 

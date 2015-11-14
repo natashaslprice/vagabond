@@ -1,3 +1,7 @@
+Post.destroy_all
+City.destroy_all
+User.destroy_all
+
 Post.create([
 	{
 		title: "Burritt Room + Tavern",
@@ -50,10 +54,23 @@ Post.create([
 	},
 	{
 		title: "El Rio",
-		content: "The Mango event on the last Sunday of each month is fun. Lot's ",
+		content: "The Mango event on the last Sunday of each month is fun.",
 		city: "San Francisco",
 		user_id: 2,
 		city_id: 1
+	},
+	{
+		title: "Osteria Basilico",
+		content: "The most amazing little Italian with a non-descript front. Have the burrata to start and the seafood and pancetta pasta for mains.",
+		city: "London",
+		user_id: 2,
+		city_id: 2
+	},{
+		title: "The Robot Show",
+		content: "This will probably be the best night of your life. Go, drink Smirnoff Ice, wave those glow sticks and dance with robots under laser lights while they play Lady Gaga.",
+		city: "Tokyo",
+		user_id: 2,
+		city_id: 3
 	},
 ])
 
@@ -61,6 +78,14 @@ City.create([
 	{
 		name: "San Francisco",
 		pic: "http://static1.squarespace.com/static/547f29bfe4b0dc192ed7bdac/54aeb15ce4b018c14f34c7cb/54aeb160e4b018c14f34c7ed/1420734817363/san-franc.jpg?format=2500w"
+	},
+	{
+		name: "London",
+		pic: "http://www.iapss.org/wp-content/uploads/2014/10/London1a.jpg"
+	},
+	{
+		name: "Tokyo",
+		pic: "http://www.accountant-tokyo.com/wp-content/uploads/2014/07/Shinjuku-Tokyo-Ville-N%C3%A9ons-Enseignes-3722.jpg"
 	},
 ])
 

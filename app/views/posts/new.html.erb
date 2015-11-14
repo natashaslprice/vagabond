@@ -10,11 +10,7 @@
 				<%= f.text_area :content, class: "form-control", placeholder: 'Content', size: "40x10" %>
 				<br>
 				<%= f.label :city %>
-				<select class='form-control'>
-					<option>San Francisco</option>
-					<option>London</option>
-					<option>Sapporo</option>
-				</select>
+				<%= f.select :city, ['San Francisco', 'London', 'Tokyo'], :selected => "San Francisco", class: "form-control btn-group" %>
 				<br>
 				<div class="text-right">
 					<%= f.submit 'post', value: "Post!", class: "btn btn-primary" %>

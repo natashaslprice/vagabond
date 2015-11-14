@@ -17,6 +17,16 @@ class PostsController < ApplicationController
     if post.save
       #push post into user
       @user.posts << post
+        # find city from post params and use that to find city by id
+        if post.city == "San Francisco"
+          city = City.find_by(id: 1)
+        elsif post.city == "London"
+          city = City.find_by(id: 2)
+        else
+          city = City.find_by(id: 3)
+        end
+      # Push post into city
+      city.posts << post 
       #redirect back to profile page
       redirect_to @user
     else
@@ -46,7 +56,17 @@ class PostsController < ApplicationController
        # find post
     post = Post.find(params[:id])
     # update post attributes with new form data
-    post.update_attributes(post_params)
+    post.update_attributes(post_params) 
+    # find city from post params and use that to find city by id
+      if post.city == "San Francisco"
+        city = City.find_by(id: 1)
+      elsif post.city == "London"
+        city = City.find_by(id: 2)
+      else
+        city = City.find_by(id: 3)
+      end
+    # Push post into city
+    city.posts << post 
     redirect_to post
   end
 
