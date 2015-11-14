@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   end
 
   def new
+    # find current user
+    @user = current_user
     @post = Post.new
   end
 
