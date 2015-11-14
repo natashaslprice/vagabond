@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>TravelGems</title>
+  <!-- images to grayscale cdn --> 
+  <link href="//cdn.jsdelivr.net/jquery.gray/1.4.5/gray.min.css" rel="stylesheet">
   <!-- Google Maps API -->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgXVtqnJYdNwT8U3s17i3hIRQoqE-17jA&libraries=places"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -18,5 +20,7 @@
 
 <%= yield %>
 
+<!-- Images to grayscale cdn -->
+<script src="//cdn.jsdelivr.net/jquery.gray/1.4.5/jquery.gray.min.js"></script>
 </body>
 </html>
