@@ -15,7 +15,6 @@
 
 <!-- render navbar -->
 <%= render "layouts/navbar" %>
-
 <!-- include error messages -->
 <div class="container">
 	<div class="col-sm-4 col-sm-offset-4 text-center">
@@ -24,10 +23,15 @@
 		<% end %>
 	</div>
 </div>
+=======
+<!-- include signup and login modals on all pages -->
+<%= render "layouts/signup_login_modals" %>
+
+<!-- include delete post modal -->
 
 <%= yield %>
 
-<!-- Images to grayscale cdn -->
+<!-- Images to grayscale cdn for welcome#index-->
 <script src="//cdn.jsdelivr.net/jquery.gray/1.4.5/jquery.gray.min.js"></script>
 </body>
 </html>
