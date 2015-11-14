@@ -8,7 +8,7 @@
 			<h4><%= current_user.first_name + " " + current_user.last_name %></h4>
 			<p><%= @user.current_city %></p>
 			<p> Joined <%= time_ago_in_words(@user.created_at) %> ago </p>
-			<%= link_to "Edit Profile", edit_user_path, class: "btn btn-primary" %>
+			<%= link_to 'Edit Profile', '#', class: 'btn btn-primary', data: { toggle: "modal", target: "#edit-profile-modal" } %>
 			<%= link_to "New Post", new_post_path , class: "btn btn-primary" %>
 		</div>
 		<!-- Profile Stream -->
@@ -25,5 +25,37 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="edit-profile-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+      </div>
+      <div class="modal-body">
+        <%= image_tag(@user.profile_pic.url(:medium), :class => "img-circle", :id => "profile-pic") %>
+				<%= form_for @user, html: { multipart: true } do |f| %>
+				<%= f.label :profile_pic %>
+				<%= f.file_field :profile_pic %>
+				<%= f.label :first_name %>
+				<%= f.text_field :first_name, class: "form-control", placeholder: @user.first_name, autofocus: true %>
+				<br>
+				<%= f.label :last_name %>
+				<%= f.text_field :last_name, class: "form-control", placeholder: @user.last_name %>
+				<br>
+				<%= f.label :username %>
+				<%= f.text_field :username, class: "form-control", placeholder: @user.username %>
+				<br>
+				<%= f.label :current_city %>
+				<%= f.text_field :current_city, class: "form-control", placeholder: @user.current_city %>
+				<br>
+				<%= f.submit 'Update Profile', class: "btn btn-default" %>
+			<% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
