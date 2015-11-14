@@ -9,7 +9,13 @@
 				<%= f.label :content %>
 				<%= f.text_area :content, class: "form-control", placeholder: 'Content' %>
 				<br>
-				<%= f.select :city, ['San Francisco', 'London'], :selected => "San Francisco", class: "form-control btn-group" %>
+				<%= f.label :city %>
+				<select class='form-control'>
+					<option>San Francisco</option>
+					<option>London</option>
+					<option>Sapporo</option>
+				</select>
+				<br>
 				<%= f.submit 'post', value: "Post!", class: "btn btn-primary" %>
 			<% end %>
 		</div>
