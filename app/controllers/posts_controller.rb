@@ -30,10 +30,10 @@ class PostsController < ApplicationController
       #redirect back to profile page
       redirect_to @user
     else
+      # show errors
+      flash[:error] = post.errors.full_messages.join(', ')
       #if not saved return to new post form
       redirect_to new_post_path
-      #include flash message
-
     end
   end
 
@@ -53,20 +53,22 @@ class PostsController < ApplicationController
   end
 
   def update
-       # find post
+    # find post
     post = Post.find(params[:id])
     # update post attributes with new form data
     post.update_attributes(post_params) 
     # find city from post params and use that to find city by id
-      if post.city == "San Francisco"
-        city = City.find_by(id: 1)
-      elsif post.city == "London"
-        city = City.find_by(id: 2)
-      else
-        city = City.find_by(id: 3)
-      end
+    if post.city == "San Francisco"
+      city = City.find_by(id: 1)
+    elsif post.city == "London"
+      city = City.find_by(id: 2)
+    else
+      city = City.find_by(id: 3)
+    end
     # Push post into city
     city.posts << post 
+    # show errors
+    flash[:error] = post.errors.full_messages.join(', ')
     redirect_to post
   end
 

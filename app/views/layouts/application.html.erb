@@ -14,7 +14,14 @@
 <!-- render navbar -->
 <%= render "layouts/navbar" %>
 
-<!-- include delete post modal -->
+<!-- include error messages -->
+<div class="container">
+	<div class="col-sm-4 col-sm-offset-4 text-center">
+		<% flash.each do |name, msg| %>
+		  <%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-notice'}" %>
+		<% end %>
+	</div>
+</div>
 
 <%= yield %>
 
