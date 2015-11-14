@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>TravelGems</title>
+  <!-- images to grayscale cdn --> 
+  <link href="//cdn.jsdelivr.net/jquery.gray/1.4.5/gray.min.css" rel="stylesheet">
   <!-- Google Maps API -->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgXVtqnJYdNwT8U3s17i3hIRQoqE-17jA&libraries=places"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -14,9 +16,23 @@
 <!-- render navbar -->
 <%= render "layouts/navbar" %>
 
+
 <!-- include delete post modal -->
 <%= bootstrap_flash %>
+
+<!-- include error messages -->
+<div class="container">
+	<div class="col-sm-4 col-sm-offset-4 text-center">
+		<% flash.each do |name, msg| %>
+		  <%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-notice'}" %>
+		<% end %>
+	</div>
+</div>
+
+>>>>>>> 783c638883c87f435a10226059ca16aaaf66f896
 <%= yield %>
 
+<!-- Images to grayscale cdn -->
+<script src="//cdn.jsdelivr.net/jquery.gray/1.4.5/jquery.gray.min.js"></script>
 </body>
 </html>
