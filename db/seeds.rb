@@ -64,5 +64,24 @@ City.create([
 	},
 ])
 
+User.create([
+	{
+		first_name: "Jane",
+		last_name: "Smith",
+		username: "jsmith10",
+		current_city: "San Francisco",
+		email: "jane.smith@gmail.com",
+		password_digest: "12345678"
+	},
+	{
+		first_name: "Mark",
+		last_name: "Jones",
+		username: "markjonesbabyyeah",
+		current_city: "San Francisco",
+		email: "mark.jones@gmail.com",
+		password_digest: "98765432"
+	},
+])
+
 
 
