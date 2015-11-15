@@ -24,8 +24,7 @@
 						<p><%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p)) %></p>
 						<p>Posted <%= time_ago_in_words (p.created_at)%> ago by <%= @user.username %></p>
 					</div>
-				<% end %>
-				
+				<% end %>	
 			</div>
 		</div>
 	</div>
