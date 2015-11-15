@@ -6,4 +6,8 @@ class WelcomeController < ApplicationController
   		@user = nil
   	end
   end
+
+  def convert
+  end
+  
 end
