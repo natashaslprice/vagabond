@@ -2,77 +2,12 @@ Post.destroy_all
 City.destroy_all
 User.destroy_all
 
-Post.create([
-	{
-		title: "Burritt Room + Tavern",
-		content: "Good bar with tasty cocktails. Bar snack selection limited, but waiters are attentive and will make any cocktail you want. I was there on a Friday night and the live jazz was brilliant.",
-		city: "San Francisco",
-		user_id: 1,
-		city_id: 1
-	},
-	{
-		title: "Sushirrito",
-		content: "Sushi, the size of a burrito! What can go wrong!! Delicious lunch venue. Sumo Crunch is the best.",
-		city: "San Francisco",
-		user_id: 1,
-		city_id: 1
-	},
-	{
-		title: "Blowfish Sushi",
-		content: "Really good sushi restaurant. Probably over-priced, but the menu is varied and the atmosphere is nice. Good date venue. The avocado/ salmon/ tuna pyramid is to die for!",
-		city: "San Francisco",
-		user_id: 1,
-		city_id: 1
-	},
-	{
-		title: "Crissy Fields",
-		content: "Small beach near the Marina in SF. Nice for a morning walk, and always full of happy people walking their dogs or playing with their kids.",
-		city: "San Francisco",
-		user_id: 1,
-		city_id: 1
-	},
-	{
-		title: "Osaka Sushi",
-		content: "Sushi was fine, but service pretty poor.",
-		city: "San Francisco",
-		user_id: 2,
-		city_id: 1
-	},
-	{
-		title: "Murphy's",
-		content: "Fine. Nothing special. Pretty mellow.",
-		city: "San Francisco",
-		user_id: 2,
-		city_id: 1
-	},
-	{
-		title: "Lush Lounge",
-		content: "Noisy and crowded. Very fun! Awesome for picking up chicks!",
-		city: "San Francisco",
-		user_id: 2,
-		city_id: 1
-	},
-	{
-		title: "El Rio",
-		content: "The Mango event on the last Sunday of each month is fun.",
-		city: "San Francisco",
-		user_id: 2,
-		city_id: 1
-	},
-	{
-		title: "Osteria Basilico",
-		content: "The most amazing little Italian with a non-descript front. Have the burrata to start and the seafood and pancetta pasta for mains.",
-		city: "London",
-		user_id: 2,
-		city_id: 2
-	},{
-		title: "The Robot Show",
-		content: "This will probably be the best night of your life. Go, drink Smirnoff Ice, wave those glow sticks and dance with robots under laser lights while they play Lady Gaga.",
-		city: "Tokyo",
-		user_id: 2,
-		city_id: 3
-	},
-])
+10.times { |i| Post.create(title: "Post #{i}", content: BetterLorem.p(5, false, false), city: "San Francisco", user_id: 1, city_id: 1) }
+10.times { |i| Post.create(title: "Post #{i + 10}", content: BetterLorem.p(5, false, false), city: "San Francisco", user_id: 2, city_id: 1) }
+10.times { |i| Post.create(title: "Post #{i + 20}", content: BetterLorem.p(5, false, false), city: "London", user_id: 1, city_id: 2) }
+10.times { |i| Post.create(title: "Post #{i + 30}", content: BetterLorem.p(5, false, false), city: "London", user_id: 2, city_id: 2) }
+10.times { |i| Post.create(title: "Post #{i + 40}", content: BetterLorem.p(5, false, false), city: "Tokyo", user_id: 1, city_id: 3) }
+10.times { |i| Post.create(title: "Post #{i + 50}", content: BetterLorem.p(5, false, false), city: "Tokyo", user_id: 2, city_id: 3) }
 
 City.create([
 	{
