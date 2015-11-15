@@ -9,7 +9,7 @@
 				<h4><%= current_user.first_name + " " + current_user.last_name %></h4>
 				<p><%= @user.current_city %></p>
 				<p> Joined <%= time_ago_in_words(@user.created_at) %> ago </p>
-				<div class="text-left">
+				<div class="text-left" id="user-btns">
 					<%= link_to 'Edit Profile', '#', class: 'btn btn-primary', data: { toggle: "modal", target: "#edit-profile-modal" } %>
 					<%= link_to "New Post", new_post_path , class: "btn btn-primary" %>
 				</div>

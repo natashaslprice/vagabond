@@ -20,7 +20,7 @@ body{
 	position: absolute;
 	z-index: -1;
 	height: 100%;
-	background-color: gray;
+	background-color: #d9d9d9;
 }
 #user-info-content{
 	margin: 80px 0 0 0;
@@ -31,4 +31,7 @@ body{
 }
 #user-info-content h3 {
 	margin: 40px 0 40px 0;
+}
+#user-btns {
+	margin: 20px 0 0 0;
 }
