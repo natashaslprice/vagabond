@@ -2,8 +2,8 @@
 	<div class="col-sm-8 col-sm-offset-2">
 		<div class="well">	
 			<h2 class="text-center">New Post</h2>
-			<% flash.each do |name, msg| %>
-			  <%= content_tag :div, msg, class: "alert alert-info" %>
+			<% if flash[:error] %>
+			  <div class="notice"><%= flash[:error] %></div>
 			<% end %>
 			<%= form_for @post do |f| %>
 				<%= f.label :title %>
@@ -14,7 +14,7 @@
 				<br>
 				<%= f.label :city %>
 				<br>
-				<%= f.select :city, ['San Francisco', 'London', 'Tokyo'], :selected => "San Francisco", class: "form-control btn-group" %>
+				<%= f.select :city, ['San Francisco', 'London', 'Tokyo'], :selected => "San Francisco", class: "form-control dropdown-menu" %>
 				<br>
 				<div class="text-right">
 					<%= f.submit 'post', value: "Post!", class: "btn btn-primary" %>
