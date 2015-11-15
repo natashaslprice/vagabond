@@ -6,8 +6,9 @@
   <link href="//cdn.jsdelivr.net/jquery.gray/1.4.5/gray.min.css" rel="stylesheet">
   <!-- Google Maps API -->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgXVtqnJYdNwT8U3s17i3hIRQoqE-17jA&libraries=places"></script>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<!-- This line is here so that the javascript files load on redirect within site -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -17,11 +18,11 @@
 <%= render "layouts/navbar" %>
 <!-- include error messages -->
 <div class="container">
-	<div class="col-sm-4 col-sm-offset-4 text-center">
-		<% flash.each do |name, msg| %>
-		  <%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-notice'}" %>
-		<% end %>
-	</div>
+  <div class="col-sm-4 col-sm-offset-4 text-center">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-notice'}" %>
+    <% end %>
+  </div>
 </div>
 <!-- include signup and login modals on all pages -->
 <%= render "layouts/signup_login_modals" %>

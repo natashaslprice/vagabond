@@ -1,3 +1,4 @@
+
 /*	Set lng and lat for cities to put pins on	*/
 var cities = [
 	{lat: 37.7833, lng: -122.4167}, // San Francisco, USA
@@ -45,6 +46,9 @@ function linkToCities() {
 }
 
 $(document).ready(function(){
+
+	// To initialize tooltips for city pages when not logged in
+	$(function () {$('[data-toggle="tooltip"]').tooltip();});
 
 /*	only calls init map if there is an element in the DOM with id='map' 	*/
 	if (document.getElementById('map')) {

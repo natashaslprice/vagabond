@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # root route
   root 'welcome#index'
 
+  # convert to user route
+  get '/welcome/convert', to: 'welcome#convert'
+
   #auth routes
   get '/profile', to: 'users#show', as: :profile
 

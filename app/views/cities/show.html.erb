@@ -1,15 +1,28 @@
 <div class="container">
 	<div class="col-sm-6 col-sm-offset-3">
 		<% @posts.reverse.each do |p| %>
-			<div class="posts">
+			<div class="posts"> 
 				<% if @user %>
+					<!-- If user is logged in, they can see post titles as links to posts -->
 					<h3><strong><%= link_to p.title, post_path(p) %></strong></h3> 
 				<% else %>
+					<!-- if user is not logged in, post titles are not links -->
 					<h3><strong><%= p.title %></strong></h3> 
 				<% end %>
 				<span class="pull-right">in <%= p.city %></span>
 				<br>
-				<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p)) %>
+				<% if @user %>
+					<!-- if logged in - truncated post links out to full post -->
+					<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more',post_path(p),) %>
+				<% else %>
+				<!-- if not logged in - truncated post shows tooltip and does not link -->
+					<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', '/welcome/convert', 
+						:data => { 
+							:toggle => 'tooltip',
+							:original_title => 'Login for full post.'
+							}
+						) %>
+				<% end %>
 				<p>Posted <%= time_ago_in_words (p.created_at)%> ago by 
 					<!-- logic to find author of each p -->
 					<% user_id = p.user_id %>
