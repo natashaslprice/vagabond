@@ -2,6 +2,10 @@
   <div class="panel panel-default col-md-6 col-md-offset-3">
     <div class="panel-heading">
       <h3><%= @post.title %> <small><%= link_to @post.city, root_path %></small></h3>
+<div class="container">
+  <div class="panel panel-default col-md-6 col-md-offset-3">
+   <div class="panel-heading">
+    <h3><%= @post.title %> <small><%= link_to @post.city, root_path %></small></h3>
     </div>
     <div class="panel-body">
       <p><%= @post.content %></p>
@@ -53,6 +57,13 @@
           <% end %>
         </div>
       </div>
+     <span>Created by: <%= link_to @author.username, root_path %></span>
+        <% if @post.user_id == current_user.id %>
+        <span class="pull-right">
+        <!-- button with edit modal in -->
+          <%= link_to 'Edit', edit_post_path, class: 'btn btn-primary'%>
+        </span>
+        <% end %>
     </div>
   </div>
   <% if @post.user_id == current_user.id %>
