@@ -20,11 +20,11 @@ class UsersController < ApplicationController
     @count_t = 0
     @posts.each do |post|
       if post.city_id == 1
-          @count_sf = @count_sf + 1
+        @count_sf = @count_sf + 1
       elsif post.city_id == 3
-          @count_t = @count_t + 1
+        @count_t = @count_t + 1
       else 
-          @count_l = @count_l + 1
+        @count_l = @count_l + 1
       end
       if @count_sf > 1
         @sf = "San Francisco, #{@count_sf} posts"
@@ -52,20 +52,23 @@ class UsersController < ApplicationController
   end 
 
   def create
-    #redirect user if already logged in 
-    # if current_user
-    #   redirect_to user_path
-    # else
-      user = User.new(user_params)
-      if user.save
-        session[:user_id] = user.id
-        
-        redirect_to user, flash: { success: "Successfully signed up!" }
-      else
-        render root_path, flash: { error: "Sign up failed" }
-
-      end
-    
+    user = User.new(user_params)
+    if user.save
+      session[:user_id] = user.id
+      redirect_to user, flash: { success: "Successfully signed up!" }
+    else
+      render root_path, flash: { error: "Sign up failed" }
+    end
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user, flash: { success: "Successfully signed up!" }
+    else
+      # show errors
+      @users_error = flash[:error] = @user.errors.full_messages.join(', ')
+      #if not saved return to new post form
+      render :new
+    end
   end
 
   def edit

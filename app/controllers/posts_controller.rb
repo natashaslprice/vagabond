@@ -13,28 +13,28 @@ class PostsController < ApplicationController
     # find current user
     @user = current_user
     #make a new post
-    post = Post.new(post_params)
+    @post = Post.new(post_params)
     #if post saved 
-    if post.save
+    if @post.save
       #push post into user
-      @user.posts << post
+      @user.posts << @post
         # find city from post params and use that to find city by id
-        if post.city == "San Francisco"
+        if @post.city == "San Francisco"
           city = City.find_by(id: 1)
-        elsif post.city == "London"
+        elsif @post.city == "London"
           city = City.find_by(id: 2)
         else
           city = City.find_by(id: 3)
         end
       # Push post into city
-      city.posts << post 
+      city.posts << @post 
       #redirect back to profile page
       redirect_to @user
     else
       # show errors
-      flash[:error] = post.errors.full_messages.join(', ')
+      @posts_error = flash[:error] = @post.errors.full_messages.join(', ')
       #if not saved return to new post form
-      redirect_to new_post_path
+      render :new
     end
   end
 

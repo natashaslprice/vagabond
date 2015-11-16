@@ -2,8 +2,8 @@
 	<div class="col-sm-8 col-sm-offset-2">
 		<div class="well">	
 			<h2 class="text-center">New Post</h2>
-			<% if flash[:error] %>
-			  <div class="alert alert-info text-center"><%= flash[:error] %></div>
+			<% if @posts_error %>
+			  <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
 			<% end %>
 			<%= form_for @post do |f| %>
 				<%= f.label :title %>
