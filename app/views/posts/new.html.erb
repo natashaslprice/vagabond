@@ -10,6 +10,9 @@
 	<div class="col-sm-8 col-sm-offset-2">
 		<div class="well">	
 			<h2 class="text-center">New Post</h2>
+			<% if flash[:error] %>
+			  <div class="alert alert-info"><%= flash[:error] %></div>
+			<% end %>
 			<%= form_for @post do |f| %>
 				<%= f.label :title %>
 				<%= f.text_field :title, class: "form-control", placeholder: 'Title', autofocus: true %>
@@ -18,7 +21,8 @@
 				<%= f.text_area :content, class: "form-control", placeholder: 'Content', size: "40x10" %>
 				<br>
 				<%= f.label :city %>
-				<%= f.select :city, ['San Francisco', 'London', 'Tokyo'], :selected => "San Francisco", class: "form-control btn-group" %>
+				<br>
+				<%= f.select :city, ['San Francisco', 'London', 'Tokyo'], :selected => "San Francisco", class: "form-control dropdown-menu" %>
 				<br>
 				<div class="text-right">
 					<%= f.submit 'post', value: "Post!", class: "btn btn-primary" %>
