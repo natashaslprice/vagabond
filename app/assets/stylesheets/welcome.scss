@@ -166,20 +166,4 @@ $scrollTime: 1s;
       background: lighten(#1C1C1C, 5%);
     }
   }
-  &-4 {
-    .skw-page__half--left .skw-page__content {
-      background: lighten(#1C1C1C, 5%);
-    }
-    .skw-page__half--right .skw-page__content {
-      background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/sections-3.jpg');
-    }
-  }
-  &-5 {
-    .skw-page__half--left .skw-page__content {
-      background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/img-test.jpg');
-    }
-    .skw-page__half--right .skw-page__content {
-      background: lighten(#1C1C1C, 5%);
-    }
-  }
 }

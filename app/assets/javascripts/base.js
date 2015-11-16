@@ -91,6 +91,28 @@ $(document).ready(function(){
 		  }
 		});
 
+		$(document).on("mousewheel DOMMouseScroll", function(e) {
+		  if (scrolling) return;
+		  if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
+		    navigateUp();
+		  } else { 
+		    navigateDown();
+		  }
+		});
+
+		var chevronDown = document.getElementsByClassName('icon-chevron-down');
+		var chevronUp = document.getElementsByClassName('icon-chevron-up');
+
+		$(chevronDown).on("click", function(e) {
+			e.preventDefault();
+		  navigateDown();
+		});
+
+		$(chevronUp).on("click", function(e) {
+			e.preventDefault();
+		  navigateUp();
+		});
+
 		$(document).on("keydown", function(e) {
 		  if (scrolling) return;
 		  if (e.which === 38) {
