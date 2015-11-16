@@ -8,20 +8,17 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(user_params[:email])
-
-
+    @user = User.find_by_email(user_params[:email])
   	# if User.confirm(params[:email], params[:password])
-
-    if user && user.authenticate(user_params[:password])
+    if @user && @user.authenticate(user_params[:password])
   		#save the user's id into the session
-  		session[:user_id] = user.id
+  		session[:user_id] = @user.id
   		#redirect to the show page
-  		redirect_to user_path(user.id)
+  		redirect_to user_path(@user.id)
   	else
-  		#if error logging user in
-  		redirect_to root_path, 
-      flash: { error: "Log in failed" }
+  		# show errors
+      @sessions_error = flash[:error] = "Username or password incorrect"
+      render :new
   	end
   end
 
@@ -30,7 +27,7 @@ class SessionsController < ApplicationController
     #set session id to nil (meaning no user)
     session[:user_id] = nil
     #redirect back to index page after logout
-    redirect_to root_path, flash: { success: "Successfully logged out!" }
+    redirect_to root_path
   end
 
   private
