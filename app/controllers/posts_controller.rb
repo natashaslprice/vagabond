@@ -50,7 +50,6 @@ class PostsController < ApplicationController
     # find author of post
     user_id = @post.user_id
     @author = User.find(user_id)
-
   end
 
   def update

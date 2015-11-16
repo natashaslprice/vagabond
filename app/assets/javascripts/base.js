@@ -56,6 +56,7 @@ $(document).ready(function(){
 	}
 
 	if (document.getElementById('city-skw-pages')) {
+		console.log("Test");
 		var curPage = 1;
 		var numOfPages = $(".skw-page").length;
 		var animTime = 1000;

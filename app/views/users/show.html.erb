@@ -1,7 +1,7 @@
 <div class="container" id="profile">
 	<div class="row">
 		<!-- User Info -->
-		<div class="col-md-3 col-md-offset-1" id="user-info">
+		<div class="col-sm-3 col-sm-offset-1" id="user-info">
 			<br>
 			<%= image_tag(@user.profile_pic.url(:medium), :class => "img-circle", :id => "profile-pic") %>
 			<h3><%= @user.username %></h3>
@@ -17,24 +17,12 @@
 					<%= @contributors[1] %><br>
 					<%= @contributors[2] %>
 				</p>
-		<div class="col-md-4 text-center" id="user-info">
-			<div id="user-info-content">
-				<br>
-				<%= image_tag(@user.profile_pic.url(:medium), :class => "img-circle", :id => "profile-pic") %>
-				<h3><%= @user.username %></h3>
-				<h4><%= current_user.first_name + " " + current_user.last_name %></h4>
-				<p><%= @user.current_city %></p>
-				<p> Joined <%= time_ago_in_words(@user.created_at) %> ago </p>
-				<div class="text-left" id="user-btns">
-					<%= link_to 'Edit Profile', '#', class: 'btn btn-primary', data: { toggle: "modal", target: "#edit-profile-modal" } %>
-					<%= link_to "New Post", new_post_path , class: "btn btn-primary" %>
-				</div>
 			</div>
 		</div>
 		<!-- Profile Stream -->
-		<div class="col-md-6">
+		<div class="col-sm-6 col-sm-offset-5">
 			<div class="row" id="profile-content">
-				<% @posts.reverse.each do |p| %>
+				<% @posts.reverse.each do |p| %> 
 					<div>
 						<p><h3><%= link_to p.title, post_path(p) %> </h3> in <%= p.city %></p>
 						<p><%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p)) %></p>

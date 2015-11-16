@@ -7,22 +7,27 @@ html{
     min-height:100%;
     position:relative;
 }
+
 body{
     height:100%;
 }
+
 #city {
 	height: 100%;
 	margin: -50px 0 0 0;
 }
+
 #city-info {
 	position: absolute;
 	z-index: -1;
 	height: 100%;
 	background-color: #d9d9d9;
 }
+
 #city-info-content {
 	margin: 100px 0 0 0;
 }
+
 #city-video {
 	min-width: 100% ;
 }
