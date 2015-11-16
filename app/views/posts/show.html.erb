@@ -1,66 +1,64 @@
-<div class="panel panel-default col-md-6 col-md-offset-3">
-  <div class="panel-heading">
-    <h3><%= @post.title %> <small><%= link_to @post.city, root_path %></small></h3>
+<div id="post-show-page">
+  <div class="panel panel-default col-md-6 col-md-offset-3">
+    <div class="panel-heading">
+      <h3><%= @post.title %> <small><%= link_to @post.city, root_path %></small></h3>
+    </div>
+    <div class="panel-body">
+      <p><%= @post.content %></p>
+    </div>
+    <div class="panel-footer">
+      <span>Created by: <%= link_to @author.username, root_path %></span>
+      <% if @post.user_id == current_user.id %>
+        <span class="pull-right">
+          <!-- button with edit modal in -->
+          <%= link_to 'Edit', '#', class: 'btn btn-primary', data: { toggle: "modal", target: "#edit-modal" } %>
+        </span>
+      <% end %>
+    </div>
   </div>
-  <div class="panel-body">
-    <p><%= @post.content %></p>
-  </div>
-  <div class="panel-footer">
-    <span>Created by: <%= link_to @author.username, root_path %></span>
-    <% if @post.user_id == current_user.id %>
-      <span class="pull-right">
-        <!-- button with edit modal in -->
-        <%= link_to 'Edit', '#', class: 'btn btn-primary', data: { toggle: "modal", target: "#edit-modal" } %>
-      </span>
-    <% end %>
-  </div>
-</div>
-<!-- edit modal -->
-<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Edit Post</h4>
-      </div>
-      <div class="modal-body">
-        <%= form_for @post do |f| %>
-          <%= f.label :title %>
-          <%= f.text_field :title, class: "form-control", placeholder: 'Title', autofocus: true %>
-          <%= f.label :content %>
-          <%= f.text_area :content, class: "form-control", placeholder: 'Content', size: "40x10"  %>
-          <%= f.label :city %>
-          <%= f.select :city, ['San Francisco', 'London', 'Tokyo'], :selected => "San Francisco", class: "form-control btn-group" %>
-          <br>
-          <!-- button with delete modal in -->
-          <%= link_to 'Delete', '#', class: 'btn btn-danger', data: {toggle: "modal", target: "#delete-modal"}  %> 
-          <span class="pull-right">
-            <%= f.submit 'Submit', value: "Submit", class: "btn btn-primary" %> 
-          </span>
-          <!-- error message -->
-          <% if @post.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-              <ul>
-              <% @post.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-              </ul>
-            </div>
+  <!-- edit modal -->
+  <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Edit Post</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for @post do |f| %>
+            <%= f.label :title %>
+            <%= f.text_field :title, class: "form-control", placeholder: 'Title', autofocus: true %>
+            <%= f.label :content %>
+            <%= f.text_area :content, class: "form-control", placeholder: 'Content', size: "40x10"  %>
+            <%= f.label :city %>
+            <%= f.select :city, ['San Francisco', 'London', 'Tokyo'], :selected => "San Francisco", class: "form-control btn-group" %>
+            <br>
+            <!-- button with delete modal in -->
+            <%= link_to 'Delete', '#', class: 'btn btn-danger', data: {toggle: "modal", target: "#delete-modal"}  %> 
+            <span class="pull-right">
+              <%= f.submit 'Submit', value: "Submit", class: "btn btn-primary" %> 
+            </span>
+            <!-- error message -->
+            <% if @post.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+                <ul>
+                <% @post.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <!-- end of error message -->
           <% end %>
-          <!-- end of error message -->
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
+  <% if @post.user_id == current_user.id %>
+  	<span class="pull-right">
+      <!-- button with edit modal in -->
+  		<%= link_to 'Edit', edit_post_path, class: 'btn btn-primary'%>
+  	</span>
+  <% end %> 
 </div>
-<% if @post.user_id == current_user.id %>
-	<span class="pull-right">
-    <!-- button with edit modal in -->
-		<%= link_to 'Edit', edit_post_path, class: 'btn btn-primary'%>
-	</span>
-<% end %>
-
-
-
-
