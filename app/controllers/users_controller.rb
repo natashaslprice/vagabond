@@ -9,8 +9,29 @@ class UsersController < ApplicationController
   def show
     @posts = Post.where(:user_id => current_user.id)
     @user = User.find(params[:id])
+    @cities = City.all
 
+    count(@posts, @cities)
   end
+
+  def count(posts, cities)
+    @count_sf = 0
+    @count_l = 0
+    @count_t = 0
+    @posts.each do |post|
+      if post.city_id == 1
+          @count_sf = @count_sf + 1
+      elsif post.city_id == 3
+          @count_t = @count_t + 1
+      else 
+          @count_l = @count_l + 1
+      end
+      @sf = "San Francisco, #{@count_sf} posts"
+      @t =  "Tokyo, #{@count_t} posts"
+      @l =  "London, #{@count_l} posts"
+    end
+    @contributors = @sf, @t, @l
+  end 
 
   def create
     #redirect user if already logged in 
