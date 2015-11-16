@@ -26,9 +26,27 @@ class UsersController < ApplicationController
       else 
           @count_l = @count_l + 1
       end
-      @sf = "San Francisco, #{@count_sf} posts"
-      @t =  "Tokyo, #{@count_t} posts"
-      @l =  "London, #{@count_l} posts"
+      if @count_sf > 1
+        @sf = "San Francisco, #{@count_sf} posts"
+      elsif @count_sf == 1
+        @sf = "San Francisco, #{@count} post"
+      else
+        @sf = ""
+      end
+      if @count_t > 1
+         @t =  "Tokyo, #{@count_t} posts"
+      elsif @count_t == 1
+        @t =  "Tokyo, #{@count_t} post"
+      else
+          @t = ""
+      end
+      if @count_l > 1
+        @l =  "London, #{@count_l} posts"
+      elsif @count_l == 1
+        @l =  "London, #{@count_l} post"  
+      else
+        @l = ""
+      end
     end
     @contributors = @sf, @t, @l
   end 

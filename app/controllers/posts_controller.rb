@@ -73,6 +73,7 @@ class PostsController < ApplicationController
     redirect_to post
   end
 
+
   def destroy
     # find current user
     @user = current_user
@@ -82,6 +83,7 @@ class PostsController < ApplicationController
     post.destroy
     redirect_to @user
   end
+
 
   private
 
