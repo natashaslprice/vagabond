@@ -1,9 +1,7 @@
 <div class="container">
 	<div class="col-sm-6 col-sm-offset-3">
-		<% @posts.reverse.each do |p| %>
-			<div class="posts"> 
-		<% @posts.each do |p| %>
-			<div class="posts">
+		<div class="posts"> 
+			<% @posts.each do |p| %>
 				<% if @user %>
 					<!-- If user is logged in, they can see post titles as links to posts -->
 					<h3><strong><%= link_to p.title, post_path(p) %></strong></h3> 
@@ -32,8 +30,8 @@
 					<%= author.username %>
 				</p>
 				<hr>
-			</div>
-		<% end %>	
+			<% end %>	
+		</div>
 		<!-- pagination -->
 		<div id="infinite-scrolling">
 		  <%= will_paginate @posts %>
