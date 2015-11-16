@@ -3,4 +3,8 @@ class City < ActiveRecord::Base
 
 	# pagination
 	self.per_page = 10
+
+	extend FriendlyId
+	friendly_id :name, use: [:slugged, :history]
+
 end

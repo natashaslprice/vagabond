@@ -64,5 +64,8 @@ group :development do
   gem 'betterlorem', '~> 0.1.2'
   gem 'bootstrap-will_paginate', '~> 0.0.10'
 
+  # gem for pretty url
+  gem 'friendly_id'
+
 end
 

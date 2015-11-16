@@ -8,7 +8,11 @@ class UsersController < ApplicationController
 
   def show
     @posts = Post.where(:user_id => current_user.id)
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
+    # added for friendly id if name is edited to not break url 
+    if request.path != user_path(@user)
+      redirect_to @user, status: :moved_permanently
+    end
     @cities = City.all
 
     count(@posts, @cities)

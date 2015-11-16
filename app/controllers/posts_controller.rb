@@ -46,7 +46,11 @@ class PostsController < ApplicationController
     # find current user so page is logged in
     @user = current_user
     # find post 
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
+    # added for friendly id if name is edited to not break url 
+    if request.path != post_path(@post)
+      redirect_to @post, status: :moved_permanently
+    end
     # find author of post
     user_id = @post.user_id
     @author = User.find(user_id)
