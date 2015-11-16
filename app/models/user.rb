@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
 	validates :password_digest, presence: true
 	validates_confirmation_of :password
 
+	# friendly_id to create slugs and use them to make pretty-urls
+	extend FriendlyId
+	friendly_id :username, use: [:slugged, :history]
+
 	def password
 		@password
 	end
