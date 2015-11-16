@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         
         redirect_to user, flash: { success: "Successfully signed up!" }
       else
-        redirect_to root_path, flash: { error: "Sign up failed" }
+        render root_path, flash: { error: "Sign up failed" }
 
       end
     

@@ -1,15 +1,76 @@
 <!-- Index Page City Pictures -->
-<div class="row cover">
+<!-- <div class="row cover">
   <div class="col-md-4 cover-img">
     <a href="/cities/1">
-      <img class="grayscale grayscale-fade" src="http://images.fineartamerica.com/images-medium-large/san-francisco-city-view-fuminana.jpg"></a>
+      <img class="grayscale grayscale-fade" src="http://images.fineartamerica.com/images-medium-large/san-francisco-city-view-fuminana.jpg">
+      <h1 class="city-name">San Francisco</h1>
+    </a>
   </div>
   <div class="col-md-4 cover-img">
     <a href="/cities/2">
-      <img class="grayscale grayscale-fade" src="http://www.networkrail.co.uk/uploadedImages/networkrail.co.uk/Contents/Improvements/Stafford_%E2%80%93_Norton_Bridge(1)/Images/BirdseyeCGI(1).jpg"></a>
+      <img class="grayscale grayscale-fade" src="http://www.networkrail.co.uk/uploadedImages/networkrail.co.uk/Contents/Improvements/Stafford_%E2%80%93_Norton_Bridge(1)/Images/BirdseyeCGI(1).jpg">
+      <h1 class="city-name">London</h1>
+    </a>
   </div>
   <div class="col-md-4 cover-img">
     <a href="/cities/3">
-      <img class="grayscale grayscale-fade" src="http://www.businessdestinations.com/wp-content/uploads/2013/12/Tokyo-city-800x600.jpg"></a>
+      <img class="grayscale grayscale-fade" src="http://www.businessdestinations.com/wp-content/uploads/2013/12/Tokyo-city-800x600.jpg">
+      <h1 class="city-name">Tokyo</h1>
+    </a>
     </div>
-</div> 
+</div>  -->
+<div id="city-skw-pages">
+  <div class="skw-pages">
+    <div class="skw-page skw-page-1 active">
+      <div class="skw-page__half skw-page__half--left">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content"></div>
+        </div>
+      </div>
+      <div class="skw-page__half skw-page__half--right">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content">
+            <h2 class="skw-page__heading"><%= link_to "San Francisco", '/cities/1' %></h2>
+            <p class="skw-page__description"><%= link_to "Discover San Francisco", '/cities/1' %></p>
+            <a class="skw-page__description" href=""><i class="icon-chevron-down icon-4x"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="skw-page skw-page-2">
+      <div class="skw-page__half skw-page__half--left">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content">
+            <a class="skw-page__description" href=""><i class="icon-chevron-up icon-4x"></i></a>
+            <h2 class="skw-page__heading"><%= link_to "London", '/cities/2' %></h2>
+            <p class="skw-page__description"><%= link_to "Discover London", '/cities/2' %></p>
+            <a class="skw-page__description" href=""><i class="icon-chevron-down icon-4x"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="skw-page__half skw-page__half--right">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content"></div>
+        </div>
+      </div>
+    </div>
+    <div class="skw-page skw-page-3">
+      <div class="skw-page__half skw-page__half--left">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content"></div>
+        </div>
+      </div>
+      <div class="skw-page__half skw-page__half--right">
+        <div class="skw-page__skewed">
+          <div class="skw-page__content">
+            <a class="skw-page__description" href=""><i class="icon-chevron-up icon-4x"></i></a>
+            <h2 class="skw-page__heading"><%= link_to "Tokyo", '/cities/3' %></h2>
+            <p class="skw-page__description"><%= link_to "Discover Tokyo", '/cities/3' %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
