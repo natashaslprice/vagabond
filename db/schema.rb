@@ -68,4 +68,6 @@ ActiveRecord::Schema.define(version: 20151116201820) do
     t.string   "slug"
   end
 
+  add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
+
 end
