@@ -1,17 +1,9 @@
 <div class="container">
-	<div class="col-sm-4 col-sm-offset-4 text-center">
-		<% flash.each do |name, msg| %>
-		  <%= content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-notice'}" %>
-		<% end %>
-	</div>
-</div>
-
-<div class="container">
 	<div class="col-sm-8 col-sm-offset-2">
 		<div class="well">	
 			<h2 class="text-center">New Post</h2>
 			<% if flash[:error] %>
-			  <div class="alert alert-info"><%= flash[:error] %></div>
+			  <div class="alert alert-info text-center"><%= flash[:error] %></div>
 			<% end %>
 			<%= form_for @post do |f| %>
 				<%= f.label :title %>
