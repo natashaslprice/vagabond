@@ -69,12 +69,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   def update
     # find user
-    user = User.find(params[:id])
+    user = User.friendly.find(params[:id])
     # update user attributes with new form data
     user.update_attributes(user_params)
     redirect_to user

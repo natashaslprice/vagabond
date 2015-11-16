@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 
   def show
@@ -54,11 +54,12 @@ class PostsController < ApplicationController
     # find author of post
     user_id = @post.user_id
     @author = User.find(user_id)
+    @city = @post.city.gsub(" ", "-").downcase
   end
 
   def update
     # find post
-    post = Post.find(params[:id])
+    post = Post.friendly.find(params[:id])
     # update post attributes with new form data
     post.update_attributes(post_params) 
     # find city from post params and use that to find city by id
