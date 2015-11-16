@@ -8,12 +8,13 @@
    		<ul class="nav navbar-nav pull-right">
    			<li class="logged-in"><%= link_to "Discover", root_path %></li>
         <!-- Cities dropdown -->
-          <li class="logged-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities<span class="caret"></span></a>
+        <li class="logged-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/cities/1">San Francisco</a></li>
             <li><a href="/cities/2">London</a></li>
             <li><a href="/cities/3">Tokyo</a></li>
           </ul>
+        </li>
    		 	<li class="logged-in"><%= link_to "Profile", @user %></li>
         <!-- Logout Dropdown -->
    		 	<li class="logged-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>

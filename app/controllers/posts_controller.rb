@@ -40,6 +40,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.friendly.find(params[:id])
+    @user = current_user
   end
 
   def show
@@ -59,22 +60,27 @@ class PostsController < ApplicationController
 
   def update
     # find post
-    post = Post.friendly.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     # update post attributes with new form data
-    post.update_attributes(post_params) 
+    @post.update_attributes(post_params) 
     # find city from post params and use that to find city by id
-    if post.city == "San Francisco"
+    if @post.city == "San Francisco"
       city = City.find_by(id: 1)
-    elsif post.city == "London"
+    elsif @post.city == "London"
       city = City.find_by(id: 2)
     else
       city = City.find_by(id: 3)
     end
     # Push post into city
-    city.posts << post 
-    # show errors
-    flash[:error] = post.errors.full_messages.join(', ')
-    redirect_to post
+    city.posts << @post 
+    # if error
+    if @post.errors.any?
+      # show errors
+      @post_edit_error = flash[:error] = @post.errors.full_messages.join(', ')
+      render :edit
+    else
+      redirect_to @post
+    end
   end
 
 
@@ -82,7 +88,7 @@ class PostsController < ApplicationController
     # find current user
     @user = current_user
     # find post to delete
-    post = Post.find(params[:id])
+    post = Post.friendly.find(params[:id])
     # destroy post
     post.destroy
     redirect_to @user
