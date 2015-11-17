@@ -12,14 +12,14 @@
 			<%= link_to "New Post", new_post_path , method: :get, class: "btn btn-primary" %>
 			<br>
 			<div id="contributor">
-				<p> Contributor to: <br> 
+				<p class="contributor-header"> Contributor to: <br> 
 					<%= @contributors[0] %><br>  
 					<%= @contributors[1] %><br>
 					<%= @contributors[2] %>
 				</p>
 			</div>
 		</div>
-<!-- Profile Stream -->
+		<!-- Profile Stream -->
 		<div class="col-sm-6 col-sm-offset-6" id="profile-content">
 			<% @posts.reverse.each do |p| %> 
 				<div class="well">
