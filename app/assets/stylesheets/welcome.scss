@@ -2,13 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
+body {
+  padding-top: 80px;
+}
 
 .welcome {
-  margin: -20px 0 0 0;
+  margin: -30px 0 0 0;
   padding: 0;
   position: relative;
   min-height: 100%;
   min-width: 100%;
+  font-family: 'Raleway', sans-serif;
 }
 
 a {
@@ -26,6 +30,7 @@ a:hover {
 }
 .skw-page__heading {
 	font-size: 60px;
+  font-family: 'Poiret One', cursive;
 }
 .skw-pages {
   overflow: hidden;
@@ -155,4 +160,16 @@ $scrollTime: 1s;
       background: lighten(#1C1C1C, 5%);
     }
   }
+}
+
+/*navbar styling*/
+
+.navbar-default {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+#brand-name {
+  font-family: 'Poiret One', cursive;
 }
