@@ -44,6 +44,14 @@ body{
 	text-decoration: none;
 	color: black !important;
 }
+.read-link {
+	text-decoration: none;
+	color: #808080 !important;
+}
+.read-link:hover {
+	text-decoration: none;
+	color: #404040 !important;
+}
 #user-info {
 	clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
 	-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
