@@ -23,18 +23,17 @@
 					<!-- if user is not logged in, post titles are not links -->
 					<h3><strong><%= p.title %> </strong><small> in <%= p.city %></small></h3>
 				<% end %>
-				<br>
 				<% if @user %>
 					<!-- if logged in - truncated post links out to full post -->
-					<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p), class: "read-more-link") %>
+					<p><%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p), class: "read-more-link") %></p>
 				<% else %>
 				<!-- if not logged in - truncated post shows tooltip and does not link -->
-					<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', '/welcome/convert', class: "read-more-link",
+					<p><%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', '/welcome/convert', class: "read-more-link",
 						:data => { 
 							:toggle => 'tooltip',
 							:original_title => 'Login for full post.'
 							}
-						) %>
+						) %></p>
 				<% end %>
 				<p>Posted <%= time_ago_in_words (p.created_at)%> ago by 
 					<!-- logic to find author of each p -->

@@ -24,7 +24,7 @@
 			<% @posts.each do |p| %> 
 				<p><h3><%= link_to p.title, post_path(p), class: "profile-link" %> <small> in <%= p.city %></small></h3></p>
 				<p><%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p), class: "read-link") %></p>
-				<p><span class="posted">Posted <%= time_ago_in_words (p.created_at)%> ago by </span><%= @user.username %></p><br>
+				<p><span class="posted">Posted <%= time_ago_in_words (p.created_at)%> ago by </span><%= @user.username %></p>
 				<hr>
 			<% end %>
 			<!-- pagination -->
