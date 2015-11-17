@@ -1,22 +1,35 @@
-<div class="container">
-	<div class="col-sm-6 col-sm-offset-3">
+<div class="container city-container">
+	<!-- left hand div -->
+	<div class="col-sm-4" id="city-info">
+		<br>
+		<% if @city.name == 'San Francisco' %>
+			<%= image_tag(asset_path('sf_small.jpg'), :class => "img-circle", :id => "city-pic") %>
+		<% elsif @city.name == 'London' %>
+			<%= image_tag(asset_path('l_small.jpg'), :class => "img-circle", :id => "city-pic") %>
+		<% elsif @city.name == 'Tokyo' %>
+			<%= image_tag(asset_path('t_small.jpg'), :class => "img-circle", :id => "city-pic") %>
+		<% end %>
+		<h3 class="city-name"><%= @city.name %></h3>
+		<br>
+	</div>
+	<!-- right hand div -->
+	<div class="col-sm-6 col-sm-offset-6" id="city-content">
 		<div class="posts"> 
 			<% @posts.each do |p| %>
 				<% if @user %>
 					<!-- If user is logged in, they can see post titles as links to posts -->
-					<h3><strong><%= link_to p.title, post_path(p), class: "city-link" %></strong></h3> 
+					<h3><strong><%= link_to p.title, post_path(p), class: "city-link" %> </strong><small> in <%= p.city %></small></h3> 
 				<% else %>
 					<!-- if user is not logged in, post titles are not links -->
-					<h3><strong><%= p.title %></strong></h3> 
+					<h3><strong><%= p.title %> </strong><small> in <%= p.city %></small></h3>
 				<% end %>
-				<span class="pull-right">in <%= p.city %></span>
 				<br>
 				<% if @user %>
 					<!-- if logged in - truncated post links out to full post -->
-					<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more',post_path(p),) %>
+					<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p), class: "read-more-link") %>
 				<% else %>
 				<!-- if not logged in - truncated post shows tooltip and does not link -->
-					<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', '/welcome/convert', 
+					<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', '/welcome/convert', class: "read-more-link",
 						:data => { 
 							:toggle => 'tooltip',
 							:original_title => 'Login for full post.'
@@ -35,43 +48,6 @@
 		<!-- pagination -->
 		<div id="infinite-scrolling">
 		  <%= will_paginate @posts %>
-		</div>
-<div class="container" id="city">
-	<div class="row">
-		<!-- User Info -->
-		<div class="col-md-4 text-center" id="city-info">
-			<div id="city-info-content">
-			<!-- VIDEO GOES HERE -->
-			<video autoplay loop muted id="city-video">
-				<source src="../app/assets/videos/sanfrancisco.mp4" type="video/mp4">
-			</video>
-			<h2><%= @city.name %></h2>	
-			</div>
-		</div>
-		<!-- Profile Stream -->
-		<div class="col-md-6">
-			<div class="row" id="profile-content">
-			<div class="col-sm-6">
-				<% @posts.reverse.each do |p| %>
-					<div class="posts">
-						<% if @user %>
-							<h3><strong><%= link_to p.title, post_path(p) %></strong></h3> 
-						<% else %>
-							<h3><strong><%= p.title %></strong></h3> 
-						<% end %>
-						<span class="pull-right">in <%= p.city %></span>
-						<br>
-						<%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p)) %>
-						<p>Posted <%= time_ago_in_words (p.created_at)%> ago by 
-							<!-- logic to find author of each p -->
-							<% user_id = p.user_id %>
-							<% author = User.find(user_id) %>
-							<%= author.username %>
-						</p>
-						<hr>
-					</div>
-				<% end %>	
-			</div>
 		</div>
 	</div>
 </div>

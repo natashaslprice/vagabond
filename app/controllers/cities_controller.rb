@@ -8,6 +8,6 @@ class CitiesController < ApplicationController
   	if request.path != city_path(@city)
   		redirect_to @city, status: :moved_permanently
   	end
-  	@posts = Post.where(:city_id => @city).paginate(page: params[:page], per_page: 15).order('created_at DESC')
+  	@posts = Post.where(:city_id => @city).paginate(page: params[:page], per_page: 4).order('created_at DESC')
   end
 end
