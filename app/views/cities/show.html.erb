@@ -4,7 +4,7 @@
 			<% @posts.each do |p| %>
 				<% if @user %>
 					<!-- If user is logged in, they can see post titles as links to posts -->
-					<h3><strong><%= link_to p.title, post_path(p) %></strong></h3> 
+					<h3><strong><%= link_to p.title, post_path(p), class: "city-link" %></strong></h3> 
 				<% else %>
 					<!-- if user is not logged in, post titles are not links -->
 					<h3><strong><%= p.title %></strong></h3> 

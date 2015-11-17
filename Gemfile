@@ -1,6 +1,17 @@
 source 'https://rubygems.org'
 
 
+# bootstrap
+gem 'bootstrap-sass', '~> 3.3.5'
+# paperclip for photos
+gem 'paperclip', '~> 4.3', '>= 4.3.1'
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+# gem "twitter-bootstrap-rails"
+# gems for pagination and infinite scroll
+gem 'will_paginate', '~> 3.0.5'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+# gem for pretty url
+gem 'friendly_id'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
@@ -47,25 +58,11 @@ group :development do
   # ffaker for test or seed dater
   gem 'ffaker'
 
-  # bootstrap
-  gem 'bootstrap-sass', '~> 3.3.5'
-
-  # paperclip for photos
-  gem 'paperclip', '~> 4.3', '>= 4.3.1'
 
   gem 'papercrop', '~> 0.3.0'
 
-  gem "therubyracer"
-  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-  gem "twitter-bootstrap-rails"
-
-  # gems for pagination and infinite scroll
-  gem 'will_paginate', '~> 3.0.5'
   gem 'betterlorem', '~> 0.1.2'
-  gem 'bootstrap-will_paginate', '~> 0.0.10'
 
-  # gem for pretty url
-  gem 'friendly_id'
 
 end
 
