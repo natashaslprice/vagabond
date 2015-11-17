@@ -8,8 +8,8 @@
 			<h4><%= current_user.first_name + " " + current_user.last_name %></h4>
 			<p> Current City : <%= @user.current_city %></p>
 			<p> Joined <%= time_ago_in_words(@user.created_at) %> ago </p>
-			<%= link_to 'Edit Profile', edit_user_path, class: 'btn btn-primary' %>
-			<%= link_to "New Post", new_post_path , class: "btn btn-primary" %>
+			<%= link_to 'Edit Profile', edit_user_path, method: :get, class: 'btn btn-primary' %>
+			<%= link_to "New Post", new_post_path , method: :get, class: "btn btn-primary" %>
 			<br>
 			<div id="contributor">
 				<p> Contributor to: <br> 
