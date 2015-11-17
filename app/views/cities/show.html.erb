@@ -9,7 +9,7 @@
 		<% elsif @city.name == 'Tokyo' %>
 			<%= image_tag(asset_path('t_small.jpg'), :class => "img-circle", :id => "city-pic") %>
 		<% end %>
-		<h3 class="city-name"><%= @city.name %></h3>
+		<h3 class="city-name"><%= @city.name.upcase %></h3>
 		<br>
 	</div>
 	<!-- right hand div -->

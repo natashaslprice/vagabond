@@ -73,8 +73,13 @@ body{
 	-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
 	background-color: #262626;
 }
+
 #full-name,
 #current-city,
 #joined-at {
 	color: #cccccc !important;
+}
+
+.username-display {
+	font-family: 'Poiret One', cursive;
 }
