@@ -25,11 +25,11 @@ body{
 #user-info p,
 #user-info h4 {
 	text-align: left;
-	color: white;
+	color: white !important;
 }
 #user-info h3 {
 	margin: 40px 0 20px 0;
-	color: white;
+	color: white !important;
 }
 #user-btns {
 	margin: 20px 0 0 0;
@@ -44,8 +44,8 @@ body{
 	text-decoration: none;
 	color: black !important;
 }
-​
-div#user-info {
+#user-info {
 	clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
 	-webkit-clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+	background-color: #262626;
 }

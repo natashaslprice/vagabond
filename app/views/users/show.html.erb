@@ -1,8 +1,7 @@
 <div class="container" id="profile">
 	<div class="row">
 		<!-- User Info -->
-		<div class="col-sm-3 col-sm-offset-1" id="user-info">
-		<div class="col-md-4 col-md-offset-0" id="user-info">
+		<div class="col-sm-4" id="user-info">
 			<br>
 			<%= image_tag(@user.profile_pic.url(:medium), :class => "img-circle", :id => "profile-pic") %>
 			<h3><%= @user.username %></h3>
@@ -20,19 +19,15 @@
 				</p>
 			</div>
 		</div>
-	</div>
 <!-- Profile Stream -->
-	<div class="row">
-		<div class="col-md-6 col-md-offset-6">
-			<div class="row" id="profile-content">
-				<% @posts.reverse.each do |p| %> 
-					<div>
-						<p><h3><%= link_to p.title, post_path(p), class: "profile-link" %> </h3> in <%= p.city %></p>
-						<p><%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p)) %></p>
-						<p>Posted <%= time_ago_in_words (p.created_at)%> ago by <%= @user.username %></p><br>
-					</div>
-				<% end %>	
-			</div>
+		<div class="col-sm-6 col-sm-offset-4" id="profile-content">
+			<% @posts.reverse.each do |p| %> 
+				<div>
+					<p><h3><%= link_to p.title, post_path(p), class: "profile-link" %> </h3> in <%= p.city %></p>
+					<p><%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p)) %></p>
+					<p>Posted <%= time_ago_in_words (p.created_at)%> ago by <%= @user.username %></p><br>
+				</div>
+			<% end %>	
 		</div>
 	</div>
 </div>
