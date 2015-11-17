@@ -5,8 +5,7 @@ gem 'rails_12factor', group: :production
 gem 'bootstrap-sass', '~> 3.3.5'
 # paperclip for photos
 gem 'paperclip', '~> 4.3', '>= 4.3.1'
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-# gem "twitter-bootstrap-rails"
+# # gem "twitter-bootstrap-rails"
 # gems for pagination and infinite scroll
 gem 'will_paginate', '~> 3.0.5'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
