@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'rails_12factor', group: :production
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.5'
 # paperclip for photos
@@ -65,4 +65,5 @@ group :development do
 
 
 end
+ruby "2.2.1"
 
