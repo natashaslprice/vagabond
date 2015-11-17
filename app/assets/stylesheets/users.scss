@@ -38,7 +38,7 @@ body{
 #profile-content {
 	color: 'black';
 	text-align: right;
-	margin: 10px 30px 10px 80px;
+	margin: 100px 30px 10px 80px;
 }
 .profile-link {
 	text-decoration: none;
@@ -51,6 +51,9 @@ body{
 .read-link:hover {
 	text-decoration: none;
 	color: #404040 !important;
+}
+.posted{
+	color: #b3b3b3;
 }
 #user-info {
 	clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
