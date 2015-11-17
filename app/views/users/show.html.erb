@@ -4,7 +4,7 @@
 		<div class="col-sm-4" id="user-info">
 			<br>
 			<%= image_tag(@user.profile_pic.url(:medium), :class => "img-circle", :id => "profile-pic") %>
-			<h3><%= @user.username %></h3>
+			<h3 class='username-display'><%= @user.username %></h3>
 			<h4><%= current_user.first_name + " " + current_user.last_name %></h4>
 			<p> Current City : <%= @user.current_city %></p>
 			<p> Joined <%= time_ago_in_words(@user.created_at) %> ago </p>
