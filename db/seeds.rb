@@ -2,12 +2,12 @@
 # City.destroy_all
 # User.destroy_all
 
-# 10.times { |i| Post.create(title: "Post #{i}", content: BetterLorem.p(5, false, false), city: "San Francisco", user_id: 1, city_id: 1) }
-# 10.times { |i| Post.create(title: "Post #{i + 10}", content: BetterLorem.p(5, false, false), city: "San Francisco", user_id: 2, city_id: 1) }
-# 10.times { |i| Post.create(title: "Post #{i + 20}", content: BetterLorem.p(5, false, false), city: "London", user_id: 1, city_id: 2) }
-# 10.times { |i| Post.create(title: "Post #{i + 30}", content: BetterLorem.p(5, false, false), city: "London", user_id: 2, city_id: 2) }
-# 10.times { |i| Post.create(title: "Post #{i + 40}", content: BetterLorem.p(5, false, false), city: "Tokyo", user_id: 1, city_id: 3) }
-# 10.times { |i| Post.create(title: "Post #{i + 50}", content: BetterLorem.p(5, false, false), city: "Tokyo", user_id: 2, city_id: 3) }
+10.times { |i| Post.create(title: "Post #{i}", content: BetterLorem.p(5, false, false), city: "San Francisco", user_id: 1, city_id: 1) }
+10.times { |i| Post.create(title: "Post #{i + 10}", content: BetterLorem.p(5, false, false), city: "San Francisco", user_id: 2, city_id: 1) }
+10.times { |i| Post.create(title: "Post #{i + 20}", content: BetterLorem.p(5, false, false), city: "London", user_id: 1, city_id: 2) }
+10.times { |i| Post.create(title: "Post #{i + 30}", content: BetterLorem.p(5, false, false), city: "London", user_id: 2, city_id: 2) }
+10.times { |i| Post.create(title: "Post #{i + 40}", content: BetterLorem.p(5, false, false), city: "Tokyo", user_id: 1, city_id: 3) }
+10.times { |i| Post.create(title: "Post #{i + 50}", content: BetterLorem.p(5, false, false), city: "Tokyo", user_id: 2, city_id: 3) }
 
 City.create([
 	{
@@ -24,24 +24,24 @@ City.create([
 	},
 ])
 
-# User.create([
-# 	{
-# 		first_name: "Jane",
-# 		last_name: "Smith",
-# 		username: "jsmith10",
-# 		current_city: "San Francisco",
-# 		email: "jane.smith@gmail.com",
-# 		password_digest: "12345678"
-# 	},
-# 	{
-# 		first_name: "Mark",
-# 		last_name: "Jones",
-# 		username: "markjonesbabyyeah",
-# 		current_city: "San Francisco",
-# 		email: "mark.jones@gmail.com",
-# 		password_digest: "98765432"
-# 	},
-# ])
+User.create([
+	{
+		first_name: "Jane",
+		last_name: "Smith",
+		username: "jsmith10",
+		current_city: "San Francisco",
+		email: "jane.smith@gmail.com",
+		password_digest: "12345678"
+	},
+	{
+		first_name: "Mark",
+		last_name: "Jones",
+		username: "markjonesbabyyeah",
+		current_city: "San Francisco",
+		email: "mark.jones@gmail.com",
+		password_digest: "98765432"
+	},
+])
 
 
 
