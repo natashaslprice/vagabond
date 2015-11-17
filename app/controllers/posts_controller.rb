@@ -55,7 +55,10 @@ class PostsController < ApplicationController
     # find author of post
     user_id = @post.user_id
     @author = User.find(user_id)
+    # find city for url
     @city = @post.city.gsub(" ", "-").downcase
+    # city without downcase
+    @city_name = @post.city
   end
 
   def update

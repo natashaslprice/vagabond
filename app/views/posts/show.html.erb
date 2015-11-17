@@ -1,5 +1,19 @@
-<div id="post-show-page">
-  <div class="col-md-6 col-md-offset-3">
+<div class="container post-container" id="post">
+  <!-- left hand div -->
+  <div class="col-sm-4" id="city-info">
+    <br>
+    <% if @city_name == 'San Francisco' %>
+      <%= image_tag(asset_path('sf_small.jpg'), :class => "img-circle", :id => "city-pic") %>
+    <% elsif @city_name == 'London' %>
+      <%= image_tag(asset_path('l_small.jpg'), :class => "img-circle", :id => "city-pic") %>
+    <% elsif @city_name == 'Tokyo' %>
+      <%= image_tag(asset_path('t_small.jpg'), :class => "img-circle", :id => "city-pic") %>
+    <% end %>
+    <h3 class="city-name"><%= @city_name.upcase %></h3>
+    <br>
+  </div>
+  <!-- Profile Stream -->
+  <div class="col-sm-6 col-sm-offset-6" id="profile-content">
     <h3><%= @post.title %> <small id="city"><%= link_to @post.city, '/cities/'+@city, class: "post-link" %></small></h3>
     <p><%= @post.content %></p>
     <span><span id="created-by">Created by: </span><%= @author.username %></span>
