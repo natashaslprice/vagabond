@@ -34,11 +34,14 @@ body{
 #user-btns {
 	margin: 20px 0 0 0;
 }
-​
 #profile-content {
 	color: 'black';
-	text-align: right;
-	margin: 100px 30px 10px 80px;
+	text-align: left;
+}
+#profile-pic {
+	height: 200px;
+	width: 200px;
+	margin: 50px 0 0 0;
 }
 .profile-link {
 	text-decoration: none;
