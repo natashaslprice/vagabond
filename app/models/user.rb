@@ -49,6 +49,8 @@ class User < ActiveRecord::Base
 		user.authenticate(password_param)
 	end
 
+	# pagination
+	self.per_page = 4
 
 
 end

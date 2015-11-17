@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = Post.where(:user_id => current_user.id)
+    @posts = Post.where(:user_id => current_user.id).paginate(page: params[:page], per_page: 4).order('created_at DESC')
     @user = User.friendly.find(params[:id])
     # added for friendly id if name is edited to not break url 
     if request.path != user_path(@user)
