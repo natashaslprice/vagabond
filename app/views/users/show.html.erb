@@ -8,6 +8,7 @@
 			<p id="full-name"><%= current_user.first_name + " " + current_user.last_name %></p>
 			<p id="current-city"> Current City : <%= @user.current_city %></p>
 			<p id="joined-at"> Joined <%= time_ago_in_words(@user.created_at) %> ago </p>
+			<!-- if user -->
 			<%= link_to 'Edit Profile', edit_user_path, method: :get, class: 'btn btn-primary' %>
 			<%= link_to "New Post", new_post_path , method: :get, class: "btn btn-primary" %>
 			<br>

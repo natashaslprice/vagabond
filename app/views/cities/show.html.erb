@@ -24,10 +24,10 @@
 					<h3><strong><%= p.title %> </strong><small> in <%= p.city %></small></h3>
 				<% end %>
 				<% if @user %>
-					<!-- if logged in - truncated post links out to full post -->
+					<!-- if logged in, truncated post links to full post -->
 					<p><%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', post_path(p), class: "read-more-link") %></p>
 				<% else %>
-				<!-- if not logged in - truncated post shows tooltip and does not link -->
+				<!-- if not logged in, truncated post shows tooltip and does not link -->
 					<p><%= truncate(p.content, length: 100, omission: "... %s") % link_to('read more', '/welcome/convert', class: "read-more-link",
 						:data => { 
 							:toggle => 'tooltip',
@@ -39,7 +39,13 @@
 					<!-- logic to find author of each p -->
 					<% user_id = p.user_id %>
 					<% author = User.find(user_id) %>
-					<%= author.username %>
+					<!-- if user is logged in, they can visit other users profile pages -->
+					<% if @user %>
+						<%= link_to author.username, user_path(author), class: "username-link" %>
+					<!-- if user not lgoged in, usernames are not links -->
+					<% else %>
+						<% author.username %>
+					<% end %>
 				</p>
 				<hr>
 			<% end %>	

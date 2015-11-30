@@ -7,53 +7,27 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = Post.where(:user_id => current_user.id).paginate(page: params[:page], per_page: 4).order('created_at DESC')
+    # find user
     @user = User.friendly.find(params[:id])
     # added for friendly id if name is edited to not break url 
     if request.path != user_path(@user)
       redirect_to @user, status: :moved_permanently
     end
+    # posts for display and pagination
+    @posts = Post.where(:user_id => current_user.id).paginate(page: params[:page], per_page: 4).order('created_at DESC')
+    # posts for count function (all posts by user, not just on first page)
+    @posts_count = Post.where(:user_id => current_user.id)
     @cities = City.all
-
-    count(@posts, @cities)
+    # count posts per city for each user
+    count(@posts_count, @cities)
   end
-
-  def count(posts, cities)
-    @count_sf = 0
-    @count_l = 0
-    @count_t = 0
-    @posts.each do |post|
-      if post.city_id == 1
-        @count_sf = @count_sf + 1
-      elsif post.city_id == 2
-        @count_l = @count_l + 1
-      else 
-        @count_t = @count_t + 1
-      end
-      if @count_sf > 1
-        @sf = "San Francisco, #{@count_sf} posts"
-      elsif @count_sf == 1
-        @sf = "San Francisco, #{@count_sf} post"
-      end
-      if @count_l > 1
-         @t =  "London, #{@count_l} posts"
-      elsif @count_l == 1
-        @t =  "London, #{@count_l} post"
-      end
-      if @count_t > 1
-        @l =  "Tokyo, #{@count_t} posts"
-      elsif @count_t == 1
-        @l =  "Tokyo, #{@count_t} post"
-      end
-    end
-    @contributors = @sf, @l, @t
-  end 
 
   def create
     @user = User.new(user_params)
+    # if successfully signed up save session and redirect to user page
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user, flash: { success: "Successfully signed up!" }
+      redirect_to @user
     else
       # show errors
       @users_error = flash[:error] = @user.errors.full_messages.join(', ')
@@ -77,6 +51,36 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  def count(posts, cities)
+    count_sf = 0
+    count_l = 0
+    count_t = 0
+    posts.each do |post|
+      if post.city_id == 1
+        count_sf = count_sf + 1
+      elsif post.city_id == 2
+        count_l = count_l + 1
+      else 
+        count_t = count_t + 1
+      end
+      if count_sf > 1
+        @sf = "San Francisco, #{count_sf} posts"
+      elsif count_sf == 1
+        @sf = "San Francisco, #{count_sf} post"
+      end
+      if count_l > 1
+         @t =  "London, #{count_l} posts"
+      elsif count_l == 1
+        @t =  "London, #{count_l} post"
+      end
+      if count_t > 1
+        @l =  "Tokyo, #{count_t} posts"
+      elsif count_t == 1
+        @l =  "Tokyo, #{count_t} post"
+      end
+    end
+    @contributors = @sf, @l, @t
+  end 
 
   private
 

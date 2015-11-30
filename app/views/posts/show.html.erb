@@ -12,8 +12,8 @@
     <h3 class="city-name"><%= @city_name.upcase %></h3>
     <br>
   </div>
-  <!-- Profile Stream -->
-  <div class="col-sm-6 col-sm-offset-6" id="profile-content">
+  <!-- Post Stream -->
+  <div class="col-sm-6 col-sm-offset-6">
     <h3><%= @post.title %> <small id="city"><%= link_to @post.city, '/cities/'+@city, class: "post-link" %></small></h3>
     <p><%= @post.content %></p>
     <span><span id="created-by">Created by: </span><%= @author.username %></span>
